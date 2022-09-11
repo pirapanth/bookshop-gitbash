@@ -1,0 +1,92 @@
+<%- include('partials/head', {'title': title}) %>
+<style>
+html,body {
+  font-family: 'Open Sans', serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+body {
+    background: #ff7207;
+}
+.hero-body {
+    padding-top: 0;
+}
+.mycontainer {
+    margin-top: -20px;
+}
+.hero.is-success {
+  background: #ff7207;
+}
+.hero .nav, .hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.box {
+  margin-top: 1rem;
+  height: 280px;
+  border-radius: 0px 0px 5px 5px;
+}
+.hero{
+  background-color: #ff7207;
+  border-radius: 20px 20px 20px 20px;
+  
+}
+input {
+  font-weight: 300;
+}
+p {
+  font-weight: 700;
+}
+p.subtitle {
+  padding-top: 1rem;
+}
+.back{
+  background-color: #0a7831;
+  height:100px ;
+  border-radius: 50% 50% 0% 0%;
+}
+.image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height:100px; 
+  width:220px;
+}
+</style>
+<% 
+var animClass = ""
+if(typeof failed != 'undefined') 
+    animClass = "animated shake"
+%>
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-fullhd has-text-centered">
+            <div class="column is-4 is-offset-4">
+              <img  class="image" src="<%-baseUrl %>/imgs/profile.png">
+              <div class="back">
+                <h3 class="title has-text-grey"><%=title %></h3>
+                <p class="subtitle has-text-grey">User Sign up</p>
+              </div>
+                <div style="background-color:#0a7831;" class="box <%=animClass %>">
+                    <form action="/register" method="post">
+                        <div class="field">
+                            <div class="control">
+                                <input style="background-color:#46e67e;" class="input is-large" name="uname" type="text" placeholder="Username" autofocus="">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="control">
+                                <input style="background-color:#46e67e;" class="input is-large" name="pwd" type="password" placeholder="Your Password">
+                            </div>
+                        </div>
+                        <br>
+                        <button style="background-color:#51504f;" class="button is-block is-info is-large is-fullwidth">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/foot') %>

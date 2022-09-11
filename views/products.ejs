@@ -1,0 +1,47 @@
+<% 
+var isdisabled="disabled";
+var buyString = "Login to Buy"
+if(locals.user) {
+    isdisabled="";
+    buyString = "";
+}
+%>
+<head>
+  <link rel="stylesheet" href="<%=baseUrl %>/css/style.css" />
+</head>
+<div class="container">
+    <div class="columns is-multiline">
+
+        <% 
+        products.forEach((item,index) => { 
+        %>
+        <div class="column is-one-quarter">
+        <a href="/item/<%=item.id %>">
+            <div class="prod">
+                    <div class="card">
+                            <div class="card-image">
+                              <figure class="image is-4by3">
+                                <img class="profile" src="<%-baseUrl %>/uploads/<%=item.picture %>" alt="Placeholder image">
+                              </figure>
+                            </div>
+                            <div class="card-content">         
+                              <div class="content">
+                                <h3 style="text-shadow:#615f5f 0.5px 0.5px; color:#e83030;" class="title"><%=item.name %></h3>
+                                <code class="left">
+                                <% if(!locals.user) { %>
+                                <%=buyString %>
+                                <% } else{ %>
+                                <%=item.stock %> Left in stock
+                                <% } %>
+                                </code>
+                              </div>
+                            </div>
+                     </div>
+            </div>
+        </a>
+        </div>
+        <%  }); %>
+
+
+    </div>
+</div>
